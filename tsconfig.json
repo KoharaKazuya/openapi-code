@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2022",
+
+    /* Modules */
+    "module": "ES2020",
+    "moduleResolution": "Bundler",
+    "paths": {
+      // Please do not adjust these settings. Alterations may cause damage.
+      "#/components/schemas/*": ["./src/components/schemas/*"],
+      "#/components/responses/*": ["./src/components/responses/*"],
+      "#/components/parameters/*": ["./src/components/parameters/*"],
+      "#/components/examples/*": ["./src/components/examples/*"],
+      "#/components/requestBodies/*": ["./src/components/requestBodies/*"],
+      "#/components/headers/*": ["./src/components/headers/*"],
+      "#/components/securitySchemes/*": ["./src/components/securitySchemes/*"],
+      "#/components/links/*": ["./src/components/links/*"],
+      "#/components/callbacks/*": ["./src/components/callbacks/*"],
+      "#/components/pathItems/*": ["./src/components/pathItems/*"],
+      "@/*": ["./src/*"]
+    },
+
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+
+    /* Completeness */
+    "skipLibCheck": true
+  },
+
+  "include": ["./src/**/*"]
+}

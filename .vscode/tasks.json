@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview OpenAPI Document",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Launch Server", "Launch Simple Browser"],
+      "problemMatcher": []
+      // Uncomment the following lines to enable automatic launching of the server and preview tab on startup.
+      // "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Launch Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [{ "regexp": "^$", "file": 1, "location": 1, "message": 1 }],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "(?! ) ",
+          "endsPattern": "Successfully compiled\\."
+        }
+      }
+    },
+    {
+      "label": "Launch Simple Browser",
+      "command": "${input:simpleBrowserShow}",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "simpleBrowserShow",
+      "type": "command",
+      "command": "simpleBrowser.show",
+      "args": ["http://localhost:3000/"]
+    }
+  ]
+}
