@@ -13,6 +13,7 @@ https://github.com/KoharaKazuya/openapi-code/assets/1829589/89402cca-7778-4a38-a
 - TypeScript で柔軟な構造化が可能 (ファイル分割や共通化など)
 - Preview on Save
 - 必須項目の指定忘れの頻出ミスの防止 (`required` → `optional`)
+- 既存の OpenAPI Document の自動インポート
 
 ## 前提
 
@@ -67,6 +68,27 @@ OpenAPI Specification は v3.1.0 を使用します。
 1. `npm run build` コマンドを実行します
    - VS Code の NPM スクリプト欄 (サイドバーのエクスプローラー下部) から実行できます
 1. ルートディレクトリ直下に `openapi.yaml` ファイルが出力されていればビルド完了となります
+
+## 自動インポート
+
+すでに OpenAPI Document が JSON または YAML ファイルで存在する場合、そのファイルをソースコード (src/ 以下の全ファイル) を自動で生成することができます。
+
+ターミナルで以下のコマンドを実行してください。
+
+```sh
+rm -rf src/ # 既存のソースコードはすべて削除する必要があるためご注意ください。
+npm run import -- ${既存のopenapi.json/openapi.yaml}
+npm run fix # 生成されたソースコードを整形します
+```
+
+既存の OpenAPI Document と生成されたソースコードの差分が心配な場合は以下のようなコマンドで確かめることができます。
+
+```sh
+npm run build
+npx js-yaml ${既存のopenapi.yaml} > old.json # YAML の場合
+npx js-yaml ./openapi.yaml > new.json
+npx json-diff ./old.json ./new.json # 何も表示されなければ差分はありません
+```
 
 ## 記述ルール
 

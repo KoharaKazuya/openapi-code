@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "openapi-code": "^0.1.4",
+    "openapi-code": "^0.2.0",
     "ts-dedent": "^2.2.0"
   },
   "devDependencies": {
@@ -20,7 +20,8 @@
     "build": "openapi-code build",
     "lint": "eslint \"./src/**/*.ts\" && prettier --check ./src && tsc --noEmit && openapi-code build --check",
     "fix": "eslint --fix \"./src/**/*.ts\" && prettier --write ./src",
-    "gen": "openapi-code generate"
+    "gen": "openapi-code generate",
+    "import": "openapi-code import"
   },
   "prettier": {}
 }
