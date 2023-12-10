@@ -3,6 +3,8 @@
 OpenAPI Document (Swagger) を書くための開発環境を提供します。
 JSON や YAML を書くのではなく、TypeScript のコードを書くことで OpenAPI Document を記述できます (成果物として YAML ファイルが出力できます)。
 
+https://github.com/KoharaKazuya/openapi-code/assets/1829589/89402cca-7778-4a38-a610-fd1b9eee15e0
+
 ## 特徴
 
 - OpenAPI Document as Code
