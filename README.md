@@ -11,6 +11,7 @@ https://github.com/KoharaKazuya/openapi-code/assets/1829589/89402cca-7778-4a38-a
 - VS Code ベースの事前設定済み開発環境
 - TypeScript によるリアルタイムの型チェック
 - TypeScript で柔軟な構造化が可能 (ファイル分割や共通化など)
+- [Typia](https://typia.io/) による手間とミスの少ない JSON Schema 記述が可能
 - Preview on Save
 - 既存の OpenAPI Document の自動インポート
 

@@ -31,7 +31,9 @@
     "strict": true,
 
     /* Completeness */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "plugins": [{ "transform": "typia/lib/transform" }]
   },
 
   "include": ["./src/**/*"]
