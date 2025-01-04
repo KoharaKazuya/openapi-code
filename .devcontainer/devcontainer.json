@@ -12,9 +12,7 @@
       "settings": {
         "editor.tabSize": 2,
         "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-          "source.fixAll": true
-        },
+        "editor.codeActionsOnSave": ["source.organizeImports", "source.fixAll"],
         "[javascript][typescript][json][jsonc]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
