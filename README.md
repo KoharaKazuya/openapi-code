@@ -12,7 +12,6 @@ https://github.com/KoharaKazuya/openapi-code/assets/1829589/89402cca-7778-4a38-a
 - TypeScript によるリアルタイムの型チェック
 - TypeScript で柔軟な構造化が可能 (ファイル分割や共通化など)
 - Preview on Save
-- 必須項目の指定忘れの頻出ミスの防止 (`required` → `optional`)
 - 既存の OpenAPI Document の自動インポート
 
 ## 前提
@@ -102,10 +101,8 @@ npx json-diff ./old.json ./new.json # 何も表示されなければ差分はあ
   - OpenAPI Code が使用する OpenAPI Document の型定義は OpenAPI Spec v3.1 のものからミスを防ぐ目的などから一部変更されています
     - OpenAPI Object (OpenAPI Document ルート) の `openapi` には v3.1 系である `3.1.x` の形式のみを指定できます
     - OpenAPI Object (OpenAPI Document ルート) の `paths`, `webhooks`, `components` は指定できません。OpenAPI Code が自動で実装します
-    - `required` の指定ができるオブジェクトは代わりに `optional` が指定できます
-      - Schema Object
-      - Parameter Object
-      - Request Body Object
+    - Reference Object (`$ref` を含むオブジェクト) を指定する箇所では `referable` 関数で定義した値のみ受け付けます
+    - Security Requirement Object (`security` に指定する値) のキーには `nameReferable` 関数で定義した値のみ受け付けます
   - 変更された型定義は名前空間 `OpenAPIV3_1` 以下に配置されており、`import type { OpenAPIV3_1 } from "openapi-code/openapi/v3.1";` でインポートできます
 - 事前に定義されたファイル構造
   - `src/index.tx`: このファイルの export default が OpenAPI Document として出力されます
@@ -129,3 +126,7 @@ npx json-diff ./old.json ./new.json # 何も表示されなければ差分はあ
 - このリポジトリのルートディレクトリ直下に `openapi.yaml` ファイルとして OpenAPI Document が出力されます
 
 ※1: 定義関数 `define`, `referable`, `nameReferable` と名前空間 `OpenAPIV3_1` は `import { define, type OpenAPIV3_1 } from "openapi-code/openapi/v3.1";` などの形でインポートできます
+
+## 更新履歴
+
+[openapi-code-toolchain](https://github.com/KoharaKazuya/openapi-code-toolchain/blob/main/CHANGELOG.md) を参照してください。
