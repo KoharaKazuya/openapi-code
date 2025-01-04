@@ -1,16 +1,10 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import js from "@eslint/js";
-import tsParser from "@typescript-eslint/parser";
+import eslint from "@eslint/js";
+import importEslint from "eslint-plugin-import";
 import openAPICode from "openapi-code/eslint";
+import tsEslint from "typescript-eslint";
 
-const compat = new FlatCompat();
-
-/** @type { import("eslint").Linter.Config[] } */
-export default [
+export default tsEslint.config(
   {
-    languageOptions: {
-      parser: tsParser,
-    },
     settings: {
       "import/resolver": {
         typescript: true,
@@ -18,12 +12,10 @@ export default [
       },
     },
   },
-  js.configs.recommended,
-  ...compat.extends(
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-  ),
+  eslint.configs.recommended,
+  tsEslint.configs.recommended,
+  importEslint.flatConfigs.recommended,
+  importEslint.flatConfigs.typescript,
   openAPICode.configs.recommended,
   {
     rules: {
@@ -31,7 +23,6 @@ export default [
       "import/order": ["error", { alphabetize: { order: "asc" } }],
       "import/consistent-type-specifier-style": ["error", "prefer-inline"],
       "import/no-duplicates": ["error", { "prefer-inline": true }],
-      "import/no-unresolved": "off",
     },
   },
-];
+);
