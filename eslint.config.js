@@ -5,7 +5,7 @@ import openAPICode from "openapi-code/eslint";
 
 const compat = new FlatCompat();
 
-/** @type { import("eslint").Linter.FlatConfig[] } */
+/** @type { import("eslint").Linter.Config[] } */
 export default [
   {
     languageOptions: {
