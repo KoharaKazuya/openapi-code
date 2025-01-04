@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "openapi-code": "^0.3.0",
+    "openapi-code": "^0.4.0",
     "ts-dedent": "^2.2.0",
     "typia": "^7.5.1"
   },
